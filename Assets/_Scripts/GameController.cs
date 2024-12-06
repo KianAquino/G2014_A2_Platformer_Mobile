@@ -6,6 +6,14 @@ public class GameController : MonoBehaviour
 {
     private static GameController _instance;
 
+    [SerializeField] PlayerStats _playerStats;
+
+    private string _levelName;
+    private Difficulty _difficulty = Difficulty.NONE;
+
+    public string LevelName => _levelName;
+    public Difficulty Difficulty => _difficulty;
+
     [Header("Pause System")]
     [SerializeField] KeyCode _pauseKey = KeyCode.Escape;
     [Tooltip("If these scenes are loaded, the game is unpausable.")]
@@ -27,6 +35,9 @@ public class GameController : MonoBehaviour
     {
         GetKeyboardInputs();
     }
+
+    public static void SetLevel(string sceneName) => _instance._levelName = sceneName;
+    public static void SetDifficulty(Difficulty difficulty) => _instance._difficulty = difficulty;
 
     private void GetKeyboardInputs()
     {
@@ -82,4 +93,19 @@ public class PlayerStats
     /// </summary>
     public void ModifyPointsBy(int points) => _points += points;
     #endregion
+
+    #region LIVES
+    private int _lives = 0;
+    public int Lives => _lives;
+
+    public void SetLives(int value) => _lives = value;
+    #endregion
+}
+
+public enum Difficulty
+{
+    NONE,
+    EASY,
+    MEDIUM,
+    HARD
 }
