@@ -1,12 +1,15 @@
-using UnityEditor.Build.Reporting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
     private static GameController _instance;
 
-    [Header("Keyboard Inputs")]
+    [Header("Pause System")]
     [SerializeField] KeyCode _pauseKey = KeyCode.Escape;
+    [Tooltip("If these scenes are loaded, the game is unpausable.")]
+    [SerializeField] List<string> _noPauseScenes = new List<string>();
 
     private void Awake()
     {
@@ -29,12 +32,23 @@ public class GameController : MonoBehaviour
     {
         // PAUSE SYSTEM
         if (Input.GetKeyDown(_pauseKey))
+            PauseSystem();
+    }
+
+    private void PauseSystem()
+    {
+        // CHECK IF A "NO PAUSE" SCENE IS LOADED
+        foreach (string sceneName in _noPauseScenes)
         {
-            if (Time.timeScale == 1f)
-                PauseGame();
-            else
-                ResumeGame();
+            Scene scene = SceneManager.GetSceneByName(sceneName);
+            if (scene.IsValid() && scene.isLoaded)
+                return;
         }
+
+        if (Time.timeScale == 1f)
+            PauseGame();
+        else
+            ResumeGame();
     }
 
     public static void PauseGame()
