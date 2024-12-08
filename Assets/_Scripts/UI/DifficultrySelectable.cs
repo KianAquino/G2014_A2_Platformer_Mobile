@@ -7,6 +7,6 @@ public class DifficultrySelectable : MonoBehaviour
     public void OnClick()
     {
         GameController.SetDifficulty(_difficulty);
-        // GameController.LoadLevel();
+        GameController.LoadLevel();
     }
 }

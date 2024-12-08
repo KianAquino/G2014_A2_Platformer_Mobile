@@ -49,5 +49,7 @@ public class MainMenuHandler : MonoBehaviour
     {
         _difficultySelector.localScale = Vector3.zero;
         _levelSelector.localScale = Vector3.one;
+
+        GameController.SetDifficulty(Difficulty.NONE);
     }
 }

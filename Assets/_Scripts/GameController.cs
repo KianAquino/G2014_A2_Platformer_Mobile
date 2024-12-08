@@ -1,23 +1,29 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
     private static GameController _instance;
 
-    [SerializeField] PlayerStats _playerStats;
+    [SerializeField] PlayerStats _playerStats = new PlayerStats();
+    public static PlayerStats PlayerStats => _instance._playerStats;
 
     private string _levelName;
     private Difficulty _difficulty = Difficulty.NONE;
 
-    public string LevelName => _levelName;
-    public Difficulty Difficulty => _difficulty;
+    public static string LevelName => _instance._levelName;
+    public static Difficulty Difficulty => _instance._difficulty;
 
     [Header("Pause System")]
+    [SerializeField] GameObject _pauseUIPrefab;
     [SerializeField] KeyCode _pauseKey = KeyCode.Escape;
     [Tooltip("If these scenes are loaded, the game is unpausable.")]
     [SerializeField] List<string> _noPauseScenes = new List<string>();
+    private GameObject _pauseUICopy;
+
+    [Header("")]
+    [SerializeField] GameObject _eventSystem;
 
     private void Awake()
     {
@@ -29,6 +35,8 @@ public class GameController : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
+
+        _eventSystem.SetActive(true);
     }
 
     private void Update()
@@ -38,6 +46,24 @@ public class GameController : MonoBehaviour
 
     public static void SetLevel(string sceneName) => _instance._levelName = sceneName;
     public static void SetDifficulty(Difficulty difficulty) => _instance._difficulty = difficulty;
+
+    public static void LoadLevel()
+    {
+        SceneManager.LoadScene(_instance._levelName);
+
+        switch (_instance._difficulty)
+        {
+            case Difficulty.EASY:
+                _instance._playerStats.SetLives(3);
+                break;
+            case Difficulty.MEDIUM:
+                _instance._playerStats.SetLives(2);
+                break;
+            case Difficulty.HARD:
+                _instance._playerStats.SetLives(1);
+                break;
+        }
+    }
 
     private void GetKeyboardInputs()
     {
@@ -65,13 +91,13 @@ public class GameController : MonoBehaviour
     public static void PauseGame()
     {
         Time.timeScale = 0f;
-        Debug.Log("[Game Controller] Game paused.");
+        _instance._pauseUICopy = Instantiate(_instance._pauseUIPrefab);
     }
 
     public static void ResumeGame()
     {
         Time.timeScale = 1f;
-        Debug.Log("[Game Controller] Game resumed.");
+        Destroy(_instance._pauseUICopy);
     }
 }
 
