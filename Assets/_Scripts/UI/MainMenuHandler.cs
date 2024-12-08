@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
@@ -21,8 +22,7 @@ public class MainMenuHandler : MonoBehaviour
     }
     public void OnMainToLevelSelector()
     {
-        _main.localScale = Vector3.zero;
-        _levelSelector.localScale = Vector3.one;
+        SceneManager.LoadScene("Level Selector");
     }
 
     public void OnMainToControls()
@@ -33,10 +33,9 @@ public class MainMenuHandler : MonoBehaviour
 
     public void OnLevelSelectorToMain()
     {
-        _levelSelector.localScale = Vector3.zero;
-        _main.localScale = Vector3.one;
-
         GameController.SetLevel(null);
+
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void OnLevelSelectorToDifficultySelector()
@@ -47,9 +46,9 @@ public class MainMenuHandler : MonoBehaviour
 
     public void OnDifficultySelectorToLevelSelector()
     {
+        GameController.SetDifficulty(Difficulty.NONE);
+
         _difficultySelector.localScale = Vector3.zero;
         _levelSelector.localScale = Vector3.one;
-
-        GameController.SetDifficulty(Difficulty.NONE);
     }
 }

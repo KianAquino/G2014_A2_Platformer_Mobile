@@ -110,6 +110,12 @@ public class PlayerStats
     public float Walkspeed => _baseWalkspeed * _walkspeedMultiplier;
     #endregion
 
+    #region JUMP STRENGTH
+    [SerializeField] float _baseJumpStrength = 5f;
+    private float _jumpStrengthMultiplier = 1f;
+    public float JumpStrength => _baseJumpStrength * _jumpStrengthMultiplier;
+    #endregion
+
     #region POINTS
     [SerializeField] int _points = 0;
     public int Points => _points;

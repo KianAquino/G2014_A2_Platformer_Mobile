@@ -6,12 +6,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] Animator _animator;
     private float _walkspeed;
+    private float _jumpStrength;
     private Vector2 _velocity;
     private bool _isGrounded = false;
 
     private void Update()
     {
         _walkspeed = GameController.PlayerStats.Walkspeed;
+        _jumpStrength = GameController.PlayerStats.JumpStrength;
 
         _velocity = GetVelocity();
 
@@ -23,10 +25,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D.linearVelocityX = velocity.x * _walkspeed;
 
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
-        {
-            _rigidbody2D.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
-            Debug.Log("Jumped.");
-        }
+            _rigidbody2D.AddForce(Vector2.up * _jumpStrength, ForceMode2D.Impulse);
 
         // FLIP SPRITE BASED ON X VELOCITY
         if (_rigidbody2D.linearVelocityX < -0.01f) _spriteRenderer.flipX = true;
