@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameController : MonoBehaviour
 {
@@ -118,19 +120,46 @@ public class PlayerStats
 
     #region POINTS
     [SerializeField] int _points = 0;
+
     public int Points => _points;
+
+    [HideInInspector] public UnityEvent OnPointsChanged;
+
     /// <summary>
     /// Adjusts the player's points by the specified amount. 
     /// Pass a positive number to add points or a negative number to subtract points.
     /// </summary>
-    public void ModifyPointsBy(int points) => _points += points;
+    public void ModifyPointsBy(int points)
+    {
+        _points += points;
+
+        OnPointsChanged?.Invoke();
+    }
     #endregion
 
     #region LIVES
     private int _lives = 0;
     public int Lives => _lives;
 
-    public void SetLives(int value) => _lives = value;
+    [HideInInspector] public UnityEvent OnLivesChanged;
+
+    public void SetLives(int value)
+    {
+        _lives = value;
+
+        OnLivesChanged?.Invoke();
+
+        if (value <= 0) SceneManager.LoadScene("Main Menu");
+    }
+
+    public void DecreaseLife()
+    {
+        _lives--;
+
+        OnLivesChanged?.Invoke();
+
+        if (_lives <= 0) SceneManager.LoadScene("Main Menu");
+    }
     #endregion
 }
 

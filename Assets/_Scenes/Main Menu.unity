@@ -4768,11 +4768,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 453552340449591517, guid: ba29ab0654ad7144380b5ca75e120162, type: 3}
       propertyPath: _playerStats._baseWalkspeed
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 453552340449591517, guid: ba29ab0654ad7144380b5ca75e120162, type: 3}
+      propertyPath: _playerStats._baseJumpStrength
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 829332501968986669, guid: ba29ab0654ad7144380b5ca75e120162, type: 3}
       propertyPath: m_Name
       value: Game Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 829332501968986669, guid: ba29ab0654ad7144380b5ca75e120162, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7338366019202550653, guid: ba29ab0654ad7144380b5ca75e120162, type: 3}
       propertyPath: m_LocalPosition.x
