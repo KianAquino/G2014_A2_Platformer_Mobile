@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D _rigidbody2D;
-    [SerializeField] SpriteRenderer _spriteRenderer;
+    // [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] Animator _animator;
     private float _walkspeed;
     private float _jumpStrength;
@@ -28,10 +28,10 @@ public class PlayerController : MonoBehaviour
             _rigidbody2D.AddForce(Vector2.up * _jumpStrength, ForceMode2D.Impulse);
 
         // FLIP SPRITE BASED ON X VELOCITY
-        if (_rigidbody2D.linearVelocityX < -0.01f) _spriteRenderer.flipX = true;
-        else if (_rigidbody2D.linearVelocityX > 0.01f) _spriteRenderer.flipX = false;
+        if (_rigidbody2D.linearVelocityX < -0.01f) transform.localScale = new Vector3(-1f, 1f, 1f);
+        else if (_rigidbody2D.linearVelocityX > 0.01f) transform.localScale = new Vector3(1f, 1f, 1f);
 
-        // CHANGE ANIMATION BASED ON X VELOCITY
+        // CHANGE ANIMATION STATES
         if (_isGrounded)
         {
             if (_rigidbody2D.linearVelocityX != 0f) _animator.SetTrigger("Run");
