@@ -29,16 +29,20 @@ public class PlayerController : MonoBehaviour
         }
 
         // FLIP SPRITE BASED ON X VELOCITY
-        if (velocity.x < -0.01f) _spriteRenderer.flipX = true;
-        else if (velocity.x > 0.01f) _spriteRenderer.flipX = false;
+        if (_rigidbody2D.linearVelocityX < -0.01f) _spriteRenderer.flipX = true;
+        else if (_rigidbody2D.linearVelocityX > 0.01f) _spriteRenderer.flipX = false;
 
         // CHANGE ANIMATION BASED ON X VELOCITY
-        if (velocity.x != 0) _animator.SetBool("Running", true);
-        else _animator.SetBool("Running", false);
-
-        // TODO: FIX THIS
-        if (velocity.y > 0) _animator.Play("Jump");
-        else if (velocity.y < 0) _animator.Play("Fall");
+        if (_isGrounded)
+        {
+            if (_rigidbody2D.linearVelocityX != 0f) _animator.SetTrigger("Run");
+            else _animator.SetTrigger("Idle");
+        }
+        else
+        {
+            if (_rigidbody2D.linearVelocityY > 0f) _animator.SetTrigger("Jump");
+            else if (_rigidbody2D.linearVelocityY < 0f) _animator.SetTrigger("Fall");
+        }
     }
 
     private Vector2 GetVelocity()
