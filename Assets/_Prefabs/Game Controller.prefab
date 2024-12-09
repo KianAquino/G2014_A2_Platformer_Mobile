@@ -124,9 +124,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2a527f553dd634ca7163f7a323b55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelsUnlocked:
+  - Level: 1
+    Unlocked: 1
+  - Level: 2
+    Unlocked: 0
+  - Level: 3
+    Unlocked: 0
   _playerStats:
     _baseWalkspeed: 1
+    _baseJumpStrength: 5
     _points: 0
+    OnPointsChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    OnLivesChanged:
+      m_PersistentCalls:
+        m_Calls: []
   _pauseUIPrefab: {fileID: 2814313738138556920, guid: b9e1d781b2bd3a644a4249b40ddba032, type: 3}
   _pauseKey: 27
   _noPauseScenes:

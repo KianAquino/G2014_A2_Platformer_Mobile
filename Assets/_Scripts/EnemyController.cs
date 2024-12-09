@@ -64,6 +64,9 @@ public class EnemyController : MonoBehaviour
         {
             _playerDetected = true;
             _target = collision.gameObject;
+
+            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            playerController.RespawnTo(Vector2.zero);
         }
     }
 }

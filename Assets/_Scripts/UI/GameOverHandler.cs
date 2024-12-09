@@ -37,9 +37,21 @@ public class GameOverHandler : MonoBehaviour
         if (GameController.GameOverState == GameOverState.WON) _nextLevelButton.SetActive(true);
     }
 
-    public void OnMainMenuClicked() => GameController.MainMenu();
+    public void OnMainMenuClicked()
+    {
+        AudioSystem.PlaySFX(SFXType.CLICK, 0.3f);
+        GameController.MainMenu();
+    }
 
-    public void OnReplayLevel() => GameController.LoadLevel();
+    public void OnReplayLevel()
+    {
+        AudioSystem.PlaySFX(SFXType.CLICK, 0.3f);
+        GameController.LoadLevel();
+    }
 
-    public void OnNextLevel() => SceneManager.LoadScene("Level Selector");
+    public void OnNextLevel()
+    {
+        AudioSystem.PlaySFX(SFXType.CLICK, 0.3f);
+        SceneManager.LoadScene("Level Selector");
+    }
 }

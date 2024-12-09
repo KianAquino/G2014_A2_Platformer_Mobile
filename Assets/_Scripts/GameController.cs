@@ -2,11 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
-using static UnityEngine.Rendering.DebugUI;
 
 public class GameController : MonoBehaviour
 {
     private static GameController _instance;
+
+    #region VARIABLES
+    [Header("Levels")]
+    [SerializeField] List<LevelUnlocked> _levelsUnlocked = new List<LevelUnlocked>();
+
+    public static List<LevelUnlocked> LevelsUnlocked => _instance._levelsUnlocked;
 
     [SerializeField] PlayerStats _playerStats = new PlayerStats();
     public static PlayerStats PlayerStats => _instance._playerStats;
@@ -30,6 +35,7 @@ public class GameController : MonoBehaviour
 
     [Header("")]
     [SerializeField] GameObject _eventSystem;
+    #endregion
 
     private void Awake()
     {
@@ -48,6 +54,14 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         GetKeyboardInputs();
+    }
+
+    public static void UnlockLevel(int level)
+    {
+        foreach (LevelUnlocked levelUnlocked in _instance._levelsUnlocked)
+        {
+            if (levelUnlocked.Level == level) levelUnlocked.Unlocked = true;
+        }
     }
 
     public static void GameOver(GameOverState state)
@@ -75,6 +89,8 @@ public class GameController : MonoBehaviour
                 _instance._playerStats.SetLives(1);
                 break;
         }
+
+        _instance._playerStats.SetPoints(0);
     }
 
     private void GetKeyboardInputs()
@@ -171,7 +187,7 @@ public class PlayerStats
 
         OnLivesChanged?.Invoke();
 
-        if (value <= 0) GameController.MainMenu();
+        if (value <= 0) GameController.GameOver(GameOverState.LOSS);
     }
 
     public void DecreaseLife()
@@ -180,7 +196,7 @@ public class PlayerStats
 
         OnLivesChanged?.Invoke();
 
-        if (_lives <= 0) GameController.MainMenu();
+        if (_lives <= 0) GameController.GameOver(GameOverState.LOSS);
     }
     #endregion
 }
@@ -197,4 +213,11 @@ public enum GameOverState
 {
     LOSS,
     WON
+}
+
+[System.Serializable]
+public class LevelUnlocked
+{
+    public int Level;
+    public bool Unlocked;
 }

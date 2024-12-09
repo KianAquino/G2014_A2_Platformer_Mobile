@@ -9,6 +9,7 @@ public class Collectable : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GameController.PlayerStats.ModifyPointsBy(_points);
+            AudioSystem.PlaySFX(SFXType.COLLECT, 0.25f);
             Destroy(gameObject);
         }
     }

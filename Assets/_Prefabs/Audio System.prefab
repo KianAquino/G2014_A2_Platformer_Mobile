@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9188956808708002719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035993150317390953}
+  - component: {fileID: 5831121748876186047}
+  m_Layer: 0
+  m_Name: Audio System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1035993150317390953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9188956808708002719}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5831121748876186047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9188956808708002719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4772a4fd1e8876d428dc6e3e55f422ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _musicList:
+  - Name: MAIN_MENU
+    _sounds:
+    - {fileID: 8300000, guid: 475f4837af487ce4a9e68bb227455e4c, type: 3}
+  - Name: LEVEL_SELECTOR
+    _sounds:
+    - {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
+  - Name: GAME
+    _sounds:
+    - {fileID: 8300000, guid: 47f45ef7b5767674393cc401fc325705, type: 3}
+  - Name: GAME_OVER
+    _sounds:
+    - {fileID: 8300000, guid: 1532c7e67c2d60c4c8780da14b7e8fcf, type: 3}
+  _SFXList:
+  - Name: CLICK
+    _sounds:
+    - {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+  - Name: JUMP
+    _sounds:
+    - {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  - Name: END
+    _sounds:
+    - {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
+  - Name: COLLECT
+    _sounds:
+    - {fileID: 8300000, guid: 0c008ee3ee72a4362a35be25fa5de043, type: 3}
+  - Name: DEAD
+    _sounds:
+    - {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}

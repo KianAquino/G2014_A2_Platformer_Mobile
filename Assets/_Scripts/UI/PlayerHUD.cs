@@ -21,13 +21,13 @@ public class PlayerHUD : MonoBehaviour
         // LIFE COUNTER ============================================
         _playerLives = GameController.PlayerStats.Lives;
         // Clear Counter
-        for(int i = 0; i < _lifeCounter.childCount; i++)
+        for (int i = 0; i < _lifeCounter.childCount; i++)
         {
             Transform child = _lifeCounter.GetChild(i);
             Destroy(child.gameObject);
         }
         // Re-populate
-        for (int i = 0; i < _playerLives;  i++)
+        for (int i = 0; i < _playerLives; i++)
         {
             Instantiate(_heartImagePrefab, _lifeCounter);
         }
@@ -46,7 +46,11 @@ public class PlayerHUD : MonoBehaviour
         }
     }
 
-    public void OnPauseClicked() => GameController.PauseGame();
+    public void OnPauseClicked()
+    {
+        AudioSystem.PlaySFX(SFXType.CLICK, 0.3f);
+        GameController.PauseGame();
+    }
 
     private void OnEnable()
     {

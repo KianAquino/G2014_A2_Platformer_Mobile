@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = location;
         GameController.PlayerStats.DecreaseLife();
+        AudioSystem.PlaySFX(SFXType.DEAD, 0.5f);
     }
 
     public void MoveLeftStart() => _hVel = -1f;
@@ -90,12 +91,16 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         if (_isGrounded)
+        {
             _rigidbody2D.AddForce(Vector2.up * _jumpStrength, ForceMode2D.Impulse);
+            AudioSystem.PlaySFX(SFXType.JUMP, 0.25f);
+        }
         else if (_doubleJumpActive)
         {
             _rigidbody2D.linearVelocityY = 0f;
             _rigidbody2D.AddForce(Vector2.up * _jumpStrength, ForceMode2D.Impulse);
             _doubleJumpActive = false;
+            AudioSystem.PlaySFX(SFXType.JUMP, 0.25f);
         }
     }
 }

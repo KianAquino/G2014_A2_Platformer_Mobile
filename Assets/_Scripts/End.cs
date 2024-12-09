@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class End : MonoBehaviour
 {
+    [SerializeField] int _unlockLevel = 0;
     [SerializeField] Animator _animator;
     private bool _triggered = false;
 
@@ -17,6 +18,10 @@ public class End : MonoBehaviour
         _triggered = true;
 
         _animator.SetTrigger("Triggered");
+
+        AudioSystem.PlaySFX(SFXType.END, 0.25f);
+
+        GameController.UnlockLevel(_unlockLevel);
 
         Destroy(GameObject.Find("< PLAYER HUD >"));
 

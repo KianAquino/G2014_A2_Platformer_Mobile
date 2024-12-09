@@ -9,5 +9,10 @@ public class KillTrigger : MonoBehaviour
             PlayerController playerController = collision.GetComponent<PlayerController>();
             playerController.RespawnTo(playerController.LastGroundedPosition);
         }
+
+        if (collision.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

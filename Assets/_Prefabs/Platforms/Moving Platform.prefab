@@ -143,8 +143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 1354372749786193718}
   _end: {x: 0, y: 0}
-  _speed: 0.5
-  _waitTime: 3.5
+  _speed: 1
+  _waitTime: 2
   _gizmoSize: 0.1
 --- !u!50 &1354372749786193718
 Rigidbody2D:
