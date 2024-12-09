@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tutorial_Focus_Icon_Up_Demo_0: 7128370666417097242
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

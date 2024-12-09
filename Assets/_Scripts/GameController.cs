@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using System.Collections;
 
 public class GameController : MonoBehaviour
 {
@@ -54,6 +55,20 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         GetKeyboardInputs();
+    }
+
+    public static void SpeedBoostPlayer(float multiplier, float time)
+    {
+        _instance.StartCoroutine(_instance.SpeedBoostCoroutine(multiplier, time));
+    }
+
+    private IEnumerator SpeedBoostCoroutine(float multiplier, float time)
+    {
+        _playerStats.SetSpeedMultiplier(multiplier);
+
+        yield return new WaitForSeconds(time);
+
+        _playerStats.SetSpeedMultiplier(1f);
     }
 
     public static void UnlockLevel(int level)
@@ -146,6 +161,8 @@ public class PlayerStats
     [SerializeField] float _baseWalkspeed = 1f;
     private float _walkspeedMultiplier = 1f;
     public float Walkspeed => _baseWalkspeed * _walkspeedMultiplier;
+
+    public void SetSpeedMultiplier(float speedMultiplier) => _walkspeedMultiplier = speedMultiplier;
     #endregion
 
     #region JUMP STRENGTH

@@ -13,7 +13,8 @@ public enum SFXType
     JUMP,
     END,
     COLLECT,
-    DEAD
+    DEAD,
+    BOUNCE
 }
 
 [ExecuteInEditMode]

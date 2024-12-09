@@ -63,6 +63,14 @@ public class MainMenuHandler : MonoBehaviour
         AudioSystem.PlaySFX(SFXType.CLICK, 0.3f);
     }
 
+    public void OnControlsToMain()
+    {
+        _main.localScale = Vector3.one;
+        _controls.localScale = Vector3.zero;
+
+        AudioSystem.PlaySFX(SFXType.CLICK, 0.3f);
+    }
+
     public void OnLevelSelectorToMain()
     {
         GameController.SetLevel(null);

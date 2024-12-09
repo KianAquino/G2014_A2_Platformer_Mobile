@@ -15,9 +15,16 @@ EditorBuildSettings:
     path: Assets/_Scenes/Levels/Level 1.unity
     guid: b21e9d0dedc797a4c828cf7f70e5a287
   - enabled: 1
+    path: Assets/_Scenes/Levels/Level 2.unity
+    guid: 6ed7ef1be183d6e42a6c6a7e1c0d3d17
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Level 3.unity
+    guid: 23b9c574780b57149bccc04b5ddb7231
+  - enabled: 1
     path: Assets/_Scenes/Game Over.unity
     guid: 889464c44fd1b7941bccebd91aa7b8c6
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 8214598e9300dbf4ca2e1afec4b46e2d, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: cbfc379b720c66940ac7b45abdad11b7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

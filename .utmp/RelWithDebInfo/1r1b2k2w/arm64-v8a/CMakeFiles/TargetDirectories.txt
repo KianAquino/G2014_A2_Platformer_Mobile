@@ -1,0 +1,8 @@
+D:/T193_GameProgramming/Fall2024/GAME2014_MobileGameDevelopment1/Unity/G2014_A2_Platformer_Mobile/.utmp/RelWithDebInfo/1r1b2k2w/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/T193_GameProgramming/Fall2024/GAME2014_MobileGameDevelopment1/Unity/G2014_A2_Platformer_Mobile/.utmp/RelWithDebInfo/1r1b2k2w/arm64-v8a/CMakeFiles/rebuild_cache.dir
+D:/T193_GameProgramming/Fall2024/GAME2014_MobileGameDevelopment1/Unity/G2014_A2_Platformer_Mobile/.utmp/RelWithDebInfo/1r1b2k2w/arm64-v8a/GameActivity/CMakeFiles/game.dir
+D:/T193_GameProgramming/Fall2024/GAME2014_MobileGameDevelopment1/Unity/G2014_A2_Platformer_Mobile/.utmp/RelWithDebInfo/1r1b2k2w/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+D:/T193_GameProgramming/Fall2024/GAME2014_MobileGameDevelopment1/Unity/G2014_A2_Platformer_Mobile/.utmp/RelWithDebInfo/1r1b2k2w/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
+D:/T193_GameProgramming/Fall2024/GAME2014_MobileGameDevelopment1/Unity/G2014_A2_Platformer_Mobile/.utmp/RelWithDebInfo/1r1b2k2w/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/T193_GameProgramming/Fall2024/GAME2014_MobileGameDevelopment1/Unity/G2014_A2_Platformer_Mobile/.utmp/RelWithDebInfo/1r1b2k2w/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+D:/T193_GameProgramming/Fall2024/GAME2014_MobileGameDevelopment1/Unity/G2014_A2_Platformer_Mobile/.utmp/RelWithDebInfo/1r1b2k2w/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

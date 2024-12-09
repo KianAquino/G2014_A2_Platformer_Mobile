@@ -1,0 +1,3 @@
+D:\T193_GameProgramming\Fall2024\GAME2014_MobileGameDevelopment1\Unity\G2014_A2_Platformer_Mobile\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+D:\T193_GameProgramming\Fall2024\GAME2014_MobileGameDevelopment1\Unity\G2014_A2_Platformer_Mobile\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\FramePacing\CMakeLists.txt
+D:\T193_GameProgramming\Fall2024\GAME2014_MobileGameDevelopment1\Unity\G2014_A2_Platformer_Mobile\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

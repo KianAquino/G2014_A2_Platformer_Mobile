@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class BouncyPlatform : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] Rigidbody2D _rigidbody2D;
+    [SerializeField] float _bounceStrength = 10f;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            AudioSystem.PlaySFX(SFXType.BOUNCE, 0.3f);
+            Rigidbody2D rigidbody2D = collision.gameObject.GetComponent<Rigidbody2D>();
+            rigidbody2D.AddForce(Vector2.up *  _bounceStrength, ForceMode2D.Impulse);
+        }
     }
 }
