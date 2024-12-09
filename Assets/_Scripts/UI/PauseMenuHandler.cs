@@ -11,7 +11,6 @@ public class PauseMenuHandler : MonoBehaviour
 
     public void OnMainMenuClicked()
     {
-        GameController.ResumeGame();
-        SceneManager.LoadScene(0);
+        GameController.MainMenu();
     }
 }

@@ -46,6 +46,8 @@ public class PlayerHUD : MonoBehaviour
         }
     }
 
+    public void OnPauseClicked() => GameController.PauseGame();
+
     private void OnEnable()
     {
         GameController.PlayerStats.OnLivesChanged.AddListener(RefreshUI);

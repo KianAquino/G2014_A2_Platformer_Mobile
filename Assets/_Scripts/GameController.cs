@@ -101,6 +101,16 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1f;
         Destroy(_instance._pauseUICopy);
     }
+
+    public static void MainMenu()
+    {
+        Time.timeScale = 1f;
+
+        // _instance._playerStats.SetLives(0);
+        _instance._playerStats.SetPoints(0);
+
+        SceneManager.LoadScene("Main Menu");
+    }
 }
 
 [System.Serializable]
@@ -135,6 +145,8 @@ public class PlayerStats
 
         OnPointsChanged?.Invoke();
     }
+
+    public void SetPoints(int value) => _points = value;
     #endregion
 
     #region LIVES
@@ -149,7 +161,7 @@ public class PlayerStats
 
         OnLivesChanged?.Invoke();
 
-        if (value <= 0) SceneManager.LoadScene("Main Menu");
+        if (value <= 0) GameController.MainMenu();
     }
 
     public void DecreaseLife()
@@ -158,7 +170,7 @@ public class PlayerStats
 
         OnLivesChanged?.Invoke();
 
-        if (_lives <= 0) SceneManager.LoadScene("Main Menu");
+        if (_lives <= 0) GameController.MainMenu();
     }
     #endregion
 }
