@@ -17,6 +17,10 @@ public class GameController : MonoBehaviour
     public static string LevelName => _instance._levelName;
     public static Difficulty Difficulty => _instance._difficulty;
 
+    private GameOverState _gameOverState = GameOverState.LOSS;
+
+    public static GameOverState GameOverState => _instance._gameOverState;
+
     [Header("Pause System")]
     [SerializeField] GameObject _pauseUIPrefab;
     [SerializeField] KeyCode _pauseKey = KeyCode.Escape;
@@ -44,6 +48,12 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         GetKeyboardInputs();
+    }
+
+    public static void GameOver(GameOverState state)
+    {
+        _instance._gameOverState = state;
+        SceneManager.LoadScene("Game Over");
     }
 
     public static void SetLevel(string sceneName) => _instance._levelName = sceneName;
@@ -181,4 +191,10 @@ public enum Difficulty
     EASY,
     MEDIUM,
     HARD
+}
+
+public enum GameOverState
+{
+    LOSS,
+    WON
 }
